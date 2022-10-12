@@ -7,5 +7,17 @@ export default async function fetchWeatherData(city: string) {
     .then((data) => data.json())
     .catch((err) => console.log(err));
 
-  return geodata[0];
+  const name = geodata[0].name;
+  const lat = geodata[0].lat;
+  const lon = geodata[0].lon;
+
+  const weatherData = await fetch(
+    `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+  )
+    .then((data) => data.json())
+    .catch((err) => console.log(err));
+
+  return { name, weatherData };
 }
+
+// https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}

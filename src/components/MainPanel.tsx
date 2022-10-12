@@ -21,8 +21,10 @@ export default function MainPanel() {
 
   return (
     <>
-      <h1>Lat: {data.lat}</h1>
-      <h1>Lon: {data.lon}</h1>
+      <h1>City: {data.name}</h1>
+      <h3>Lat: {data.weatherData.lat}</h3>
+      <h3>Lon: {data.weatherData.lon}</h3>
+      <h3>Temperature: {data.weatherData.current.temp} °C</h3>
     </>
   );
 }
