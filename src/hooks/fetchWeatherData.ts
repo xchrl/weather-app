@@ -6,5 +6,6 @@ export default async function fetchWeatherData(city: string) {
   )
     .then((data) => data.json())
     .catch((err) => console.log(err));
-  return await geodata;
+
+  return geodata[0];
 }
