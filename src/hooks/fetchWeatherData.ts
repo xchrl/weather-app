@@ -8,6 +8,7 @@ export default async function fetchWeatherData(city: string) {
     .catch((err) => console.log(err));
 
   const name = geodata[0].name;
+  const local_name = geodata[0].local_names.pl;
   const lat = geodata[0].lat;
   const lon = geodata[0].lon;
 
@@ -17,5 +18,5 @@ export default async function fetchWeatherData(city: string) {
     .then((data) => data.json())
     .catch((err) => console.log(err));
 
-  return { name, weatherData };
+  return { name, local_name, weatherData };
 }
