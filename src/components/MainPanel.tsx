@@ -8,17 +8,6 @@ export default function MainPanel() {
     fetchWeatherData("Przemysl").then((res) => setData(res));
   }, []);
 
-  // const items = data.map((item, index) => {
-  //   return (
-  //     <div className="container" key={index}>
-  //       <h3>Lat: {item.lat}</h3>
-  //       <h3>Lon: {item.lon}</h3>
-  //     </div>
-  //   );
-  // });
-
-  // Method above uses the .map function to map specific object values to elements.
-
   if (data === null) return <h1>Loading data...</h1>;
   return (
     <>
