@@ -20,11 +20,14 @@ export default function MainPanel() {
   // Method above uses the .map function to map specific object values to elements.
 
   return (
-    <>
-      <h1>City: {data.name}</h1>
-      <h3>Lat: {data.weatherData.lat}</h3>
-      <h3>Lon: {data.weatherData.lon}</h3>
-      <h3>Temperature: {data.weatherData.current.temp} °C</h3>
-    </>
+    data &&
+    data.weatherData && (
+      <>
+        <h1>City: {data.name}</h1>
+        <h3>Lat: {data.weatherData.lat}</h3>
+        <h3>Lon: {data.weatherData.lon}</h3>
+        <h3>Temperature: {data.weatherData.current.temp} °C</h3>
+      </>
+    )
   );
 }
