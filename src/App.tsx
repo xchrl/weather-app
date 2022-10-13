@@ -2,8 +2,11 @@ import { SetStateAction, useState } from "react";
 import MainPanel from "./components/MainPanel";
 import SearchBar from "./components/SearchBar";
 import fetchWeatherData from "./hooks/fetchWeatherData";
+import "./styles/App.css";
 
 function App() {
+  document.body.style.backgroundColor = "black";
+
   const [data, setData] = useState<any>(null);
   const [city, setCity] = useState("");
 
