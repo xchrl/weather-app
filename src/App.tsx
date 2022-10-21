@@ -5,7 +5,13 @@ import fetchWeatherData from "./hooks/fetchWeatherData";
 import "./styles/App.css";
 
 function App() {
-  document.body.style.backgroundColor = "black";
+  document.body.style.width = "100vw";
+  document.body.style.height = "100vh";
+  document.body.style.backgroundImage =
+    "url('https://i.pinimg.com/originals/86/8b/48/868b48f0ec5b3d88216f4a484b880f59.jpg')";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundPosition = "center";
 
   const [data, setData] = useState<any>(null);
   const [city, setCity] = useState("");

@@ -1,0 +1,29 @@
+.search-bar-container {
+  margin: 16px 78px;
+  form {
+    display: flex;
+    input,
+    button {
+      all: unset;
+      display: flex;
+      align-items: center;
+      margin: 0 16px;
+      color: rgb(255, 255, 255);
+      background-color: rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+      border-radius: 999px;
+    }
+    input {
+      width: 485px;
+      height: 103px;
+      padding-left: 26px;
+      font-size: 40px;
+    }
+    button {
+      justify-content: center;
+      width: 103px;
+      font-size: 48px;
+      cursor: pointer;
+    }
+  }
+}

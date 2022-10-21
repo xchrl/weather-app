@@ -1,4 +1,4 @@
-import "../styles/mainPanel.module.css";
+import "../styles/mainPanel.scss";
 
 import {
   FaSun,
@@ -59,28 +59,35 @@ export default function MainPanel({ fetchedData }: any) {
 
   return fetchedData !== null ? (
     <div className="panel main">
-      <div className="title">
-        <h2 className="inline">
+      <header>
+        <h2 className="city-and-country">
           {fetchedData.name}, {getCountry(fetchedData.country)}
-        </h2>{" "}
-        <span className="time">
+        </h2>
+        <p className="time">
           as of{" "}
           {getFormattedTimeAndTimeZone(fetchedData.weatherData.current.dt)}
-        </span>
-      </div>
-      <div className="status">
+        </p>
+      </header>
+      <main>
         <h1 className="temperature">
-          {reactIcon} {fetchedData.weatherData.current.temp}°
+          <span className="react-icon">{reactIcon} </span>
+          <span className="current-temperature">
+            {fetchedData.weatherData.current.temp}°
+          </span>
         </h1>
-        <h3>{description}</h3>
-      </div>
-      <div className="temperatures"></div>
-      <div className="date">
-        <span className="day-of-the-week">{dayOfTheWeek}</span>
-        <span className="date">
-          {day} {month}, {year}
-        </span>
-      </div>
+      </main>
+      <footer>
+        <h2 className="description">{description}</h2>
+        <div className="temperatures">
+          {/* Maybe add temperatures for day and night here */}
+        </div>
+        <div className="date">
+          <span className="day-of-the-week">{dayOfTheWeek}</span>
+          <p className="date">
+            {day} {month}, {year}
+          </p>
+        </div>
+      </footer>
     </div>
   ) : (
     <></>

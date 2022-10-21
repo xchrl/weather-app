@@ -1,0 +1,54 @@
+.panel.main {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 18px;
+  padding: 32px;
+  margin: 16px;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    .time {
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.4);
+      margin: 0 8px;
+      text-align: right;
+    }
+  }
+  main {
+    margin: 16px 0;
+    .temperature {
+      display: flex;
+      align-items: center;
+      .react-icon svg {
+        width: 108px;
+        height: 108px;
+        margin-right: 16px;
+      }
+      .current-temperature {
+        font-size: 64px;
+      }
+    }
+  }
+  footer {
+    display: flex;
+    align-items: center;
+    .description {
+      text-transform: capitalize;
+      width: fit-content;
+      margin: 0;
+    }
+    .date {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 18px;
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      margin-left: auto;
+    }
+  }
+}
