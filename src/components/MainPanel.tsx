@@ -10,10 +10,10 @@ import {
 } from "react-icons/fa";
 import { BsCloudFog, BsCloudLightningRainFill } from "react-icons/bs";
 
-import getCountry from "../hooks/getCountry";
-import getFormattedTimeAndTimeZone from "../hooks/getFormattedTimeAndTimeZone";
-import getCurrentDayOfTheWeek from "../hooks/getCurrentDayOfTheWeek";
-import getMonth from "../hooks/getMonth";
+import getCountry from "../functions/getCountry";
+import getFormattedTimeAndTimeZone from "../functions/getFormattedTimeAndTimeZone";
+import getCurrentDayOfTheWeek from "../functions/getCurrentDayOfTheWeek";
+import getMonth from "../functions/getMonth";
 
 export default function MainPanel({ fetchedData }: any) {
   // Converts OpenWeatherMap icons to FontAwesome and Bootstrap icons

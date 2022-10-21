@@ -1,7 +1,7 @@
 import { SetStateAction, useState } from "react";
 import MainPanel from "./components/MainPanel";
 import SearchBar from "./components/SearchBar";
-import fetchWeatherData from "./hooks/fetchWeatherData";
+import fetchWeatherData from "./functions/fetchWeatherData";
 import "./styles/App.css";
 
 function App() {
