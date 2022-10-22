@@ -2,7 +2,7 @@ import { SetStateAction, useState } from "react";
 import MainPanel from "./components/MainPanel";
 import SearchBar from "./components/SearchBar";
 import fetchWeatherData from "./functions/fetchWeatherData";
-import "./styles/App.css";
+import "./styles/App.scss";
 
 function App() {
   document.body.style.width = "100vw";
