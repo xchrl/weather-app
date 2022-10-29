@@ -1,13 +1,4 @@
-.panel.main {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 18px;
-  padding: 32px;
-  margin: 16px;
-
+#main {
   header {
     display: flex;
     flex-direction: row;

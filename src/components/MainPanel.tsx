@@ -1,4 +1,5 @@
 import "../styles/mainPanel.scss";
+import styles from "../styles/Panel.module.scss";
 
 import {
   FaSun,
@@ -58,7 +59,7 @@ export default function MainPanel({ fetchedData }: any) {
   const dayOfTheWeek = getCurrentDayOfTheWeek(new Date().getDay());
 
   return fetchedData !== undefined ? (
-    <div className="panel main">
+    <div className={styles.panel} id="main">
       <header>
         <h2 className="city-and-country">
           {fetchedData.name}, {getCountry(fetchedData.country)}
