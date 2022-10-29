@@ -1,8 +1,14 @@
-import { useRef, useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import MainPanel from "./components/MainPanel";
 import SearchBar from "./components/SearchBar";
 import fetchWeatherData from "./functions/fetchWeatherData";
 import "./styles/App.scss";
+
+interface WeatherData {
+  name: string;
+  country: string;
+  weatherData: Object;
+}
 
 function App() {
   document.body.style.width = "100vw";
@@ -13,9 +19,9 @@ function App() {
   document.body.style.backgroundSize = "cover";
   document.body.style.backgroundPosition = "center";
 
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<WeatherData>();
   const [fetch, canFetch] = useState(true);
-  const cityRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const cityRef = useRef() as MutableRefObject<HTMLInputElement>;
 
   function onSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();

@@ -19,7 +19,7 @@ export default function MainPanel({ fetchedData }: any) {
   // Converts OpenWeatherMap icons to FontAwesome and Bootstrap icons
   // Also defines description for the current weather status
   let reactIcon, description;
-  if (fetchedData !== null) {
+  if (fetchedData !== undefined) {
     description = fetchedData.weatherData.current.weather[0].description;
     const ICON = fetchedData.weatherData.current.weather[0].icon.slice(0, 2);
     switch (ICON) {
@@ -57,7 +57,7 @@ export default function MainPanel({ fetchedData }: any) {
   const year = date.getFullYear();
   const dayOfTheWeek = getCurrentDayOfTheWeek(new Date().getDay());
 
-  return fetchedData !== null ? (
+  return fetchedData !== undefined ? (
     <div className="panel main">
       <header>
         <h2 className="city-and-country">
