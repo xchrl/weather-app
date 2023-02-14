@@ -1,6 +1,12 @@
 import { API_KEY } from "../data/config.json";
 
-export default async function fetchWeatherData(city: string) {
+interface Data {
+  name: string;
+  country: string;
+  weatherData: Object;
+}
+
+export default async function fetchWeatherData(city: string): Promise<Data> {
   const geodata = await fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_KEY}`
   )

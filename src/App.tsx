@@ -1,7 +1,7 @@
 import { MutableRefObject, useRef, useState } from "react";
 import MainPanel from "./components/MainPanel";
 import SearchBar from "./components/SearchBar";
-import fetchWeatherData from "./functions/fetchWeatherData";
+import fetchWeatherData from "./utility/fetchWeatherData";
 import "./styles/App.scss";
 
 interface WeatherData {
