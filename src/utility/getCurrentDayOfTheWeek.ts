@@ -1,5 +1,5 @@
 export default function getCurrentDayOfTheWeek(day: number): string {
-  let daysOfTheWeek: string[] = [
+  const daysOfTheWeek: string[] = [
     "Sunday",
     "Monday",
     "Tuesday",

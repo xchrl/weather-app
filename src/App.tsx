@@ -7,16 +7,8 @@ import { Data } from "./interfaces/WeatherData";
 import DayPanel from "./components/DayPanel";
 
 function App() {
-  document.body.style.width = "100vw";
-  document.body.style.height = "100vh";
-  document.body.style.backgroundImage =
-    "url('https://i.pinimg.com/originals/86/8b/48/868b48f0ec5b3d88216f4a484b880f59.jpg')";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundPosition = "center";
-
   const [data, setData] = useState<Data>();
-  const [fetchable, canFetch] = useState(true);
+  const [fetchable, setFetchable] = useState(true);
   const cityRef = useRef() as MutableRefObject<HTMLInputElement>;
 
   function onSubmit(e: { preventDefault: () => void }) {
@@ -24,16 +16,14 @@ function App() {
     return fetchWeatherData(cityRef.current.value)
       .then((res) => {
         setData(res);
-        canFetch(true);
+        setFetchable(true);
       })
-      .catch(() => canFetch(false));
+      .catch(() => setFetchable(false));
   }
-
-  console.log(data);
 
   return fetchable && data ? (
     <div className="container">
-      <MainPanel fetchedData={data} />
+      <MainPanel data={data} />
       <SearchBar onSubmit={onSubmit} ref={cityRef} />
       <div className="days-container">
         <h1>5-day weather forecast</h1>
@@ -48,7 +38,7 @@ function App() {
     </div>
   ) : (
     <div className="container">
-      {!fetchable ? <h1 style={{ color: "white" }}>Failed to fetch</h1> : <></>}
+      {fetchable ? <></> : <h1 style={{ color: "white" }}>Failed to fetch</h1>}
       <SearchBar onSubmit={onSubmit} ref={cityRef} />
     </div>
   );
