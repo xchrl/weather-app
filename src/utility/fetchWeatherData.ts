@@ -1,10 +1,6 @@
 import { API_KEY } from "../data/config.json";
 
-interface Data {
-  name: string;
-  country: string;
-  weatherData: Object;
-}
+import { Data } from "../interfaces/WeatherData";
 
 export default async function fetchWeatherData(city: string): Promise<Data> {
   const geodata = await fetch(

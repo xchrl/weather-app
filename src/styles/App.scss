@@ -1,6 +1,20 @@
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
   margin: 0 auto;
+  .days-container {
+    grid-column: span 2;
+  }
+}
+
+.days-container {
+  margin-top: 36px;
+  .days {
+    display: flex;
+    justify-content: space-between;
+  }
+  h1 {
+    font-size: 96px;
+    margin-left: 16px;
+    color: white;
+  }
 }
