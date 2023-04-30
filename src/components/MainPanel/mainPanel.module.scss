@@ -1,4 +1,4 @@
-#main {
+.mainPanel {
   header {
     display: flex;
     flex-direction: row;
@@ -15,12 +15,12 @@
     .temperature {
       display: flex;
       align-items: center;
-      .react-icon svg {
+      .reactIcon svg {
         width: 108px;
         height: 108px;
         margin-right: 16px;
       }
-      .current-temperature {
+      .currentTemperature {
         font-size: 64px;
       }
     }

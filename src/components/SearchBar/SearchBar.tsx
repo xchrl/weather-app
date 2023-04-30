@@ -1,10 +1,10 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-import "../styles/searchBar.scss";
+import styles from "./searchBar.module.scss";
 
 function SearchBar({ onSubmit }: any, ref: React.LegacyRef<HTMLInputElement>) {
   return (
-    <div className="search-bar-container">
+    <div className={styles.searchBar}>
       <form onSubmit={onSubmit}>
         <input type="text" placeholder="Search..." ref={ref} />
         <button type="submit">

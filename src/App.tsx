@@ -1,10 +1,10 @@
 import { MutableRefObject, useRef, useState } from "react";
-import MainPanel from "./components/MainPanel";
-import SearchBar from "./components/SearchBar";
+import MainPanel from "./components/MainPanel/MainPanel";
+import SearchBar from "./components/SearchBar/SearchBar";
 import fetchWeatherData from "./utility/fetchWeatherData";
 import "./styles/App.scss";
 import { Data } from "./interfaces/WeatherData";
-import DayPanel from "./components/DayPanel";
+import DayPanel from "./components/DayPanel/DayPanel";
 
 function App() {
   const [data, setData] = useState<Data>();
@@ -21,7 +21,7 @@ function App() {
       .catch(() => setFetchable(false));
   }
 
-  return fetchable && data ? (
+  return data ? (
     <div className="container">
       <MainPanel data={data} />
       <SearchBar onSubmit={onSubmit} ref={cityRef} />
