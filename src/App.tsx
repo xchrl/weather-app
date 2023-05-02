@@ -18,7 +18,10 @@ function App() {
         setData(res);
         setFetchable(true);
       })
-      .catch(() => setFetchable(false));
+      .catch((error) => {
+        setFetchable(false);
+        console.error(error);
+      });
   }
 
   return data ? (
