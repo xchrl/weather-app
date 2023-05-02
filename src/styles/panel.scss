@@ -7,8 +7,11 @@
   border-radius: 18px;
   padding: 24px;
   margin: 16px;
+  text-align: center;
+  main {
+    margin: 32px 0;
+  }
+  .description {
+    text-transform: capitalize;
+  }
 }
-
-// TODO: add general styles for each child element that
-// may exist inside a panel element (for example: time,
-// description, date, reactIcon etc.)

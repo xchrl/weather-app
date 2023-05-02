@@ -31,12 +31,10 @@ export default function MainPanel(props: { data: Data }) {
       </header>
       <main>
         <span className={styles.reactIcon}>{reactIcon} </span>
-        <h2 className="inline">
-          {props.data.weatherData.current.temp}°
-        </h2>
+        <h2 className="inline">{props.data.weatherData.current.temp}°</h2>
       </main>
       <footer>
-        <h2 className={styles.description}>{description}</h2>
+        <h2 className="description">{description}</h2>
         <div className="temperatures">
           {/* Maybe add temperatures for day and night here */}
         </div>

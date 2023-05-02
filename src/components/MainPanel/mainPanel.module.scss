@@ -10,7 +10,6 @@
     }
   }
   main {
-    margin: 16px 0;
     display: flex;
     align-items: center;
     .reactIcon svg {
@@ -22,7 +21,6 @@
   footer {
     display: flex;
     align-items: center;
-    .description { text-transform: capitalize; }
     .date {
       display: flex;
       flex-direction: column;

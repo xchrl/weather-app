@@ -1,13 +1,10 @@
 .dayPanel {
-  max-width: 225px;
-  text-align: center;
+  max-width: 325px;
   main {
-    margin: 32px 0;
     span.reactIcon svg {
       width: 91px;
       height: 91px;
       margin: 4px 0;
     }
-    .description { text-transform: capitalize; }
   }
 }

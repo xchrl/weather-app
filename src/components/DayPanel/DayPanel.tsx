@@ -25,10 +25,8 @@ export default function DayPanel(props: { day: number; data: Data }) {
       </header>
       <main>
         <span className={styles.reactIcon}>{reactIcon}</span>
-        <h2>
-          {nextDayData.temp.day}°
-        </h2>
-        <span className={`primary important ${styles.description}`}>
+        <h2>{nextDayData.temp.day}°</h2>
+        <span className="primary important description">
           {nextDayData.weather[0].description}
         </span>
       </main>
