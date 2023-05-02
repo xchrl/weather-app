@@ -7,23 +7,102 @@
       all: unset;
       display: flex;
       align-items: center;
-      margin: 0 16px;
+      margin: 0 8px;
       color: rgb(255, 255, 255);
       background-color: rgba(0, 0, 0, 0.3);
       font-weight: bold;
       border-radius: 999px;
     }
     input {
-      width: 485px;
-      height: 103px;
       padding-left: 26px;
-      font-size: 40px;
     }
     button {
       justify-content: center;
-      width: 103px;
-      font-size: 48px;
       cursor: pointer;
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .searchBar {
+    form {
+      input {
+        width: 224px;
+        height: 48px;
+        font-size: 20px;
+      }
+      button {
+        width: 48px;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .searchBar {
+    form {
+      input {
+        width: 311px;
+        height: 59px;
+        font-size: 24px;
+      }
+      button {
+        width: 59px;
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .searchBar {
+    form {
+      input {
+        width: 398px;
+        height: 70px;
+        font-size: 28px;
+      }
+      button {
+        width: 70px;
+        font-size: 36px;
+      }
+    }
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .searchBar {
+    form {
+      input {
+        width: 485px;
+        height: 81px;
+        font-size: 32px;
+      }
+      button {
+        width: 81px;
+        font-size: 42px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .searchBar {
+    form {
+      input {
+        width: 432px;
+        height: 92px;
+        font-size: 40px;
+      }
+      button {
+        width: 92px;
+        font-size: 48px;
+      }
     }
   }
 }
