@@ -1,17 +1,6 @@
 .dayPanel {
   max-width: 225px;
   text-align: center;
-  > * {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  header {
-    color: rgba(255, 255, 255, 0.4);
-    * {
-      font-size: 20px;
-    }
-  }
   main {
     margin: 32px 0;
     span.reactIcon svg {
@@ -19,19 +8,6 @@
       height: 91px;
       margin: 4px 0;
     }
-    .currentTemperature {
-      font-size: 62px;
-      font-weight: bold;
-    }
-    .description {
-      text-transform: capitalize;
-      font-size: 24px;
-    }
-  }
-
-  footer {
-    font-size: 24px;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.4);
+    .description { text-transform: capitalize; }
   }
 }

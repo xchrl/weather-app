@@ -1,41 +1,29 @@
 .mainPanel {
+  justify-self: start;
   header {
     display: flex;
     flex-direction: row;
     align-items: baseline;
     .time {
-      font-size: 24px;
-      color: rgba(255, 255, 255, 0.4);
       margin-left: 16px;
       text-align: right;
     }
   }
   main {
     margin: 16px 0;
-    .temperature {
-      display: flex;
-      align-items: center;
-      .reactIcon svg {
-        width: 108px;
-        height: 108px;
-        margin-right: 16px;
-      }
-      .currentTemperature {
-        font-size: 64px;
-      }
+    display: flex;
+    align-items: center;
+    .reactIcon svg {
+      width: 108px;
+      height: 108px;
+      margin-right: 16px;
     }
   }
   footer {
     display: flex;
-    align-items: flex-end;
-    .description {
-      text-transform: capitalize;
-      width: fit-content;
-      margin: 0;
-    }
+    align-items: center;
+    .description { text-transform: capitalize; }
     .date {
-      color: rgba(255, 255, 255, 0.4);
-      font-size: 24px;
       display: flex;
       flex-direction: column;
       text-align: right;

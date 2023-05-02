@@ -25,25 +25,23 @@ export default function MainPanel(props: { data: Data }) {
         <h2>
           {props.data.name}, {getCountry(props.data.country)}
         </h2>
-        <p className={styles.time}>
+        <p className={`secondary ${styles.time}`}>
           as of {getFormattedTimeAndTimeZone(props.data.weatherData.current.dt)}
         </p>
       </header>
       <main>
-        <h1 className={styles.temperature}>
-          <span className={styles.reactIcon}>{reactIcon} </span>
-          <span className={styles.currentTemperature}>
-            {props.data.weatherData.current.temp}°
-          </span>
-        </h1>
+        <span className={styles.reactIcon}>{reactIcon} </span>
+        <h2 className="inline">
+          {props.data.weatherData.current.temp}°
+        </h2>
       </main>
       <footer>
         <h2 className={styles.description}>{description}</h2>
         <div className="temperatures">
           {/* Maybe add temperatures for day and night here */}
         </div>
-        <div className={styles.date}>
-          <span>{dayOfTheWeek}</span>
+        <div className={`secondary ${styles.date}`}>
+          <p>{dayOfTheWeek}</p>
           <p>
             {day} {month}, {year}
           </p>

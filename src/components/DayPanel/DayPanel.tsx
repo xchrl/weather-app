@@ -17,25 +17,25 @@ export default function DayPanel(props: { day: number; data: Data }) {
   const reactIcon = convertIcons(nextDayData.weather[0].icon.slice(0, 2));
   return (
     <div className={`panel ${styles.dayPanel}`} id={`day-${props.day}`}>
-      <header>
-        <span>{dayOfTheWeek}</span>
-        <h2>
+      <header className="secondary">
+        <p>{dayOfTheWeek}</p>
+        <p className="important">
           {day} {month}, {year}
-        </h2>
+        </p>
       </header>
       <main>
         <span className={styles.reactIcon}>{reactIcon}</span>
-        <span className={styles.currentTemperature}>
+        <h2>
           {nextDayData.temp.day}°
-        </span>
-        <h2 className={styles.description}>
-          {nextDayData.weather[0].description}
         </h2>
+        <span className={`primary important ${styles.description}`}>
+          {nextDayData.weather[0].description}
+        </span>
       </main>
       <footer>
-        <span>
+        <p className="secondary important">
           {props.data.name}, {getCountry(props.data.country)}
-        </span>
+        </p>
       </footer>
     </div>
   );

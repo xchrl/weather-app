@@ -16,6 +16,30 @@ body {
   background-position: center;
 }
 
+h1 {
+  font-size: 96px;
+}
+
 h2 {
-  font-size: 40px;
+  font-size: 64px;
+}
+
+span, p {
+  font-size: 24px;
+}
+
+.primary {
+  color: white;
+}
+
+.secondary {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.important {
+  font-weight: bold;
+}
+
+.inline {
+  display: inline;
 }
