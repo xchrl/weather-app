@@ -17,7 +17,8 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .dayPanel {
-    max-width: 150px;
+    min-width: 100px;
+    max-width: 130px;
     main {
       margin: 16px 0;
       .reactIcon {
@@ -30,7 +31,8 @@
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .dayPanel {
-    max-width: 175px;
+    min-width: 125px;
+    max-width: 155px;
     main {
       margin: 20px 0;
       .reactIcon {
@@ -43,7 +45,8 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .dayPanel {
-    max-width: 200px;
+    min-width: 150px;
+    max-width: 180px;
     main {
       margin: 24px 0;
       .reactIcon {
@@ -56,7 +59,8 @@
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .dayPanel {
-    max-width: 225px;
+    min-width: 175px;
+    max-width: 205px;
     main {
       margin: 28px 0;
       .reactIcon {
@@ -68,7 +72,8 @@
 
 @media only screen and (min-width: 1200px) {
   .dayPanel {
-    max-width: 275px;
+    min-width: 200px;
+    max-width: 230px;
     main {
       margin: 32px 0;
       .reactIcon {

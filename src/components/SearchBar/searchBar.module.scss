@@ -1,5 +1,5 @@
 .searchBar {
-  margin: 16px;
+  margin: 8px;
   form {
     display: flex;
     input,
@@ -7,7 +7,6 @@
       all: unset;
       display: flex;
       align-items: center;
-      margin: 0 4px;
       color: rgb(255, 255, 255);
       background-color: rgba(0, 0, 0, 0.3);
       font-weight: bold;
@@ -17,6 +16,7 @@
       padding: 0 26px;
     }
     button {
+      aspect-ratio: 1 / 1;
       justify-content: center;
       cursor: pointer;
     }
@@ -28,13 +28,14 @@
   .searchBar {
     form {
       input {
-        width: 192px;
-        height: 48px;
+        width: 144px;
+        height: 36px;
         font-size: 20px;
       }
       button {
-        width: 48px;
+        height: 36px;
         font-size: 24px;
+        margin-left: 8px;
       }
     }
   }
@@ -45,13 +46,14 @@
   .searchBar {
     form {
       input {
-        width: 256px;
-        height: 59px;
+        width: 192px;
+        height: 48px;
         font-size: 24px;
       }
       button {
-        width: 59px;
+        height: 48px;
         font-size: 30px;
+        margin-left: 10px;
       }
     }
   }
@@ -62,13 +64,14 @@
   .searchBar {
     form {
       input {
-        width: 320px;
-        height: 70px;
+        width: 240px;
+        height: 60px;
         font-size: 28px;
       }
       button {
-        width: 70px;
+        height: 60px;
         font-size: 36px;
+        margin-left: 12px;
       }
     }
   }
@@ -79,13 +82,14 @@
   .searchBar {
     form {
       input {
-        width: 384px;
-        height: 81px;
+        width: 288px;
+        height: 72px;
         font-size: 32px;
       }
       button {
-        width: 81px;
+        height: 72px;
         font-size: 42px;
+        margin-left: 14px;
       }
     }
   }
@@ -95,13 +99,14 @@
   .searchBar {
     form {
       input {
-        width: 416px;
-        height: 92px;
+        width: 384px;
+        height: 84px;
         font-size: 40px;
       }
       button {
-        width: 92px;
+        height: 84px;
         font-size: 48px;
+        margin-left: 16px;
       }
     }
   }
