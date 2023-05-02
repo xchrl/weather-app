@@ -7,17 +7,9 @@
   font-family: "Inter", "Times New Roman", monospace, sans-serif;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
-}
-
-body,
-div#root {
-  background-image: url("https://i.pinimg.com/originals/86/8b/48/868b48f0ec5b3d88216f4a484b880f59.jpg");
-  background-repeat: no-repeat;
+html {
+  background: url("https://i.pinimg.com/originals/86/8b/48/868b48f0ec5b3d88216f4a484b880f59.jpg") no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
 }
 
 .primary {
