@@ -5,6 +5,7 @@ import fetchWeatherData from "./utility/fetchWeatherData";
 import "./styles/App.scss";
 import { Data } from "./interfaces/WeatherData";
 import DayPanel from "./components/DayPanel/DayPanel";
+import fetchRandomImage from "./utility/fetchRandomImage";
 
 function App() {
   const [data, setData] = useState<Data>();
@@ -13,10 +14,13 @@ function App() {
 
   function onSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
-    return fetchWeatherData(cityRef.current.value)
+    const value = cityRef.current.value;
+    
+    return fetchWeatherData(value)
       .then((res) => {
         setData(res);
         setFetchable(true);
+        fetchRandomImage(value).then(url => document.documentElement.style.backgroundImage = `url("${url}")`)
       })
       .catch((error) => {
         setFetchable(false);
