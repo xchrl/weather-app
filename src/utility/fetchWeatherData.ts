@@ -1,9 +1,8 @@
-import { API_KEY } from "../data/config.json";
 import { Data } from "../interfaces/WeatherData";
 
 export default async function fetchWeatherData(city: string): Promise<Data> {
   const geoData = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_KEY}`
+    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${import.meta.env.VITE_OPENWEATHERMAP_API_KEY}`
   )
     .then((data) => data.json())
     .catch((err) => console.log(err));
