@@ -13,7 +13,7 @@ export default async function fetchWeatherData(city: string): Promise<Data> {
   const lat = geoData[0].lat;
 
   const weatherData = await fetch(
-    `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+    `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${import.meta.env.VITE_OPENWEATHERMAP_API_KEY}`
   )
     .then((data) => data.json())
     .catch((err) => console.log(err));
