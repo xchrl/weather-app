@@ -7,9 +7,7 @@ export default async function fetchRandomImage(query: string) {
     }`
   )
     .then((resp) => resp.json())
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
 
-  return data.results.length != 0
-    ? data.results[0].urls.full
-    : console.error("No picture found!");
+  return data.results[0].urls.full;
 }

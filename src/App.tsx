@@ -6,25 +6,43 @@ import "./styles/App.scss";
 import { Data } from "./interfaces/WeatherData";
 import DayPanel from "./components/DayPanel/DayPanel";
 import fetchRandomImage from "./utility/fetchRandomImage";
+import ErrorPopup from "./components/ErrorPopup/ErrorPopup";
+import { FetchInfo } from "./interfaces/FetchInfo";
 
 function App() {
   const [data, setData] = useState<Data>();
-  const [fetchable, setFetchable] = useState(true);
+  const [fetchInfo, setFetchInfo] = useState<FetchInfo>({ fetchable: true });
   const cityRef = useRef() as MutableRefObject<HTMLInputElement>;
 
   function onSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
     const value = cityRef.current.value;
-    
+    setFetchInfo({ fetchable: true });
+
+    /* TODO: clean this shit up */
     return fetchWeatherData(value)
       .then((res) => {
         setData(res);
-        setFetchable(true);
-        fetchRandomImage(value).then(url => document.documentElement.style.backgroundImage = `url("${url}")`)
+        fetchRandomImage(value)
+          .then((url) => {
+            document.documentElement.style.backgroundImage = `url("${url}")`;
+            setFetchInfo({ fetchable: true });
+          })
+          .catch((error) => {
+            setFetchInfo({
+              fetchable: false,
+              errorMessage:
+                "Can't fetch image. This could be due to the API not being able to find any image for the city.",
+            });
+            console.error(error);
+          });
       })
       .catch((error) => {
-        setFetchable(false);
-        console.error(error);
+        setFetchInfo({
+          fetchable: false,
+          errorMessage:
+            "Can't fetch data. User has no internet connection or the API doesn't work.",
+        });
       });
   }
 
@@ -42,15 +60,23 @@ function App() {
           <DayPanel day={5} data={data} />
         </div>
       </div>
+      {/* TODO: make this fetchable check once instead of twice */}
+      {fetchInfo.fetchable ? (
+        <></>
+      ) : (
+        <ErrorPopup errorMessage={fetchInfo.errorMessage} />
+      )}
     </div>
   ) : (
     <div className="container">
-      {fetchable ? <></> : <h1 style={{ color: "white" }}>Failed to fetch</h1>}
+      {fetchInfo.fetchable ? (
+        <></>
+      ) : (
+        <ErrorPopup errorMessage={fetchInfo.errorMessage} />
+      )}
       <SearchBar onSubmit={onSubmit} ref={cityRef} />
     </div>
   );
 }
-
-// TODO: make a modal error message appear in case fetchable is false (user can't fetch due to no internet connection, etc.)
 
 export default App;
