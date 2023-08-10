@@ -38,10 +38,11 @@ function App() {
           });
       })
       .catch((error) => {
+        console.error(error);
         setFetchInfo({
           fetchable: false,
           errorMessage:
-            "Can't fetch data. User has no internet connection or the API doesn't work.",
+            "Can't fetch data. User has no internet connection, the API doesn't work or the city does not exist.",
         });
       });
   }

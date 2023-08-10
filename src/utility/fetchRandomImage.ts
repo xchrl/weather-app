@@ -9,5 +9,7 @@ export default async function fetchRandomImage(query: string) {
     .then((resp) => resp.json())
     .catch((err) => console.error(err));
 
-  return data.results[0].urls.full;
+  if (data.total != 0) {
+    return data.results[0].urls.full;
+  } else throw new Error("Image can't be fetched");
 }
