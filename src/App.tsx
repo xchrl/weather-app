@@ -16,33 +16,31 @@ function App() {
 
   function onSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
-    const value = cityRef.current.value;
     setFetchInfo({ fetchable: true });
 
-    /* TODO: clean this shit up */
+    const value = cityRef.current.value;
+
     fetchWeatherData(value)
-      .then((res) => {
-        setData(res);
-        fetchRandomImage(value)
-          .then((url) => {
-            document.documentElement.style.backgroundImage = `url("${url}")`;
-            setFetchInfo({ fetchable: true });
-          })
-          .catch((error) => {
-            setFetchInfo({
-              fetchable: false,
-              errorMessage:
-                "Can't fetch image. This could be due to the API not being able to find any image for the city.",
-            });
-            console.error(error);
-          });
-      })
+      .then((res) => setData(res))
       .catch((error) => {
         console.error(error);
         setFetchInfo({
           fetchable: false,
           errorMessage:
             "Can't fetch data. User has no internet connection, the API doesn't work or the city does not exist.",
+        });
+      });
+
+    fetchRandomImage(value)
+      .then((url) => {
+        document.documentElement.style.backgroundImage = `url("${url}")`;
+      })
+      .catch((error) => {
+        console.error(error);
+        setFetchInfo({
+          fetchable: false,
+          errorMessage:
+            "Can't fetch image. This could be due to the API not being able to find any image for the city.",
         });
       });
   }
