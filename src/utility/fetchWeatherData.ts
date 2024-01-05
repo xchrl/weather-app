@@ -1,14 +1,11 @@
 import { Data } from "../interfaces/WeatherData";
 
 export default async function fetchWeatherData(city: string): Promise<Data> {
-  // TODO: handle fetching error (if user has no internet connection there are 3 errors instead of one concise)
   const geoData = await fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${
       import.meta.env.VITE_OPENWEATHERMAP_API_KEY
     }`
-  )
-    .then((data) => data.json())
-    .catch((err) => console.error(err));
+  ).then((data) => data.json());
   let name, country, lat, lon;
 
   if (geoData.length != 0) {

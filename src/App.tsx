@@ -20,7 +20,7 @@ function App() {
     setFetchInfo({ fetchable: true });
 
     /* TODO: clean this shit up */
-    return fetchWeatherData(value)
+    fetchWeatherData(value)
       .then((res) => {
         setData(res);
         fetchRandomImage(value)
@@ -47,35 +47,29 @@ function App() {
       });
   }
 
-  return data ? (
+  return (
     <div className="container">
-      <MainPanel data={data} />
-      <SearchBar onSubmit={onSubmit} ref={cityRef} />
-      <div className="days-container">
-        <h1>5-day weather forecast</h1>
-        <div className="days">
-          <DayPanel day={1} data={data} />
-          <DayPanel day={2} data={data} />
-          <DayPanel day={3} data={data} />
-          <DayPanel day={4} data={data} />
-          <DayPanel day={5} data={data} />
-        </div>
-      </div>
-      {/* TODO: make this fetchable check once instead of twice */}
-      {fetchInfo.fetchable ? (
-        <></>
+      {data ? (
+        <>
+          <MainPanel data={data} />
+          <SearchBar onSubmit={onSubmit} ref={cityRef} />
+          <div className="days-container">
+            <h1>5-day weather forecast</h1>
+            <div className="days">
+              <DayPanel day={1} data={data} />
+              <DayPanel day={2} data={data} />
+              <DayPanel day={3} data={data} />
+              <DayPanel day={4} data={data} />
+              <DayPanel day={5} data={data} />
+            </div>
+          </div>
+        </>
       ) : (
+        <SearchBar onSubmit={onSubmit} ref={cityRef} />
+      )}
+      {fetchInfo.fetchable ? null : ( // Check for errors
         <ErrorPopup errorMessage={fetchInfo.errorMessage} />
       )}
-    </div>
-  ) : (
-    <div className="container">
-      {fetchInfo.fetchable ? (
-        <></>
-      ) : (
-        <ErrorPopup errorMessage={fetchInfo.errorMessage} />
-      )}
-      <SearchBar onSubmit={onSubmit} ref={cityRef} />
     </div>
   );
 }
