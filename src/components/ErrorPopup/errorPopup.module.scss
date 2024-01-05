@@ -1,0 +1,29 @@
+// TODO: clean this shit up too
+
+.popup {
+  background-color: rgba(255, 0, 0, 0.6);
+  height: max-content;
+  text-align: center;
+  color: white;
+  grid-column: span 2;
+  place-self: start center;
+  position: absolute;
+  margin-top: 16px;
+  border-radius: 4px;
+  padding: 16px 32px;
+  animation: hidePopup 1s forwards;
+  animation-delay: 8s;
+  * {
+    padding-block: 2px;
+  }
+}
+
+@keyframes hidePopup {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
