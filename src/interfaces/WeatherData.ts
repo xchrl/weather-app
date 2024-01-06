@@ -1,5 +1,5 @@
 export interface Data {
-  name: string;
+  city: string;
   country: string;
   weatherData: WeatherData;
 }

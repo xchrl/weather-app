@@ -23,5 +23,5 @@ export default async function fetchWeatherData(city: string): Promise<Data> {
     .then((data) => data.json())
     .catch((err) => console.error(err));
 
-  return { name, country, weatherData };
+  return { city: name, country, weatherData };
 }

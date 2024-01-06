@@ -51,7 +51,7 @@ function App() {
         <>
           <MainPanel
             data={data.weatherData.current}
-            city={data.name}
+            city={data.city}
             country={data.country}
           />
           <SearchBar onSubmit={onSubmit} ref={cityRef} />
@@ -66,7 +66,7 @@ function App() {
                   <DayPanel
                     day={index + 1} // + 1, because id's show the number of the day after today (tomorrow: 'day-1', 2 days: 'day-2' and so on)
                     data={day}
-                    city={data.name}
+                    city={data.city}
                     country={data.country}
                   />
                 ))}
