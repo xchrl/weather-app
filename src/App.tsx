@@ -49,7 +49,11 @@ function App() {
     <div className="container">
       {data ? (
         <>
-          <MainPanel data={data} />
+          <MainPanel
+            data={data.weatherData.current}
+            city={data.name}
+            country={data.country}
+          />
           <SearchBar onSubmit={onSubmit} ref={cityRef} />
           <div className="days-container">
             <h1>5-day weather forecast</h1>

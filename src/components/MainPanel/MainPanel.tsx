@@ -5,13 +5,17 @@ import getFormattedTimeAndTimeZone from "../../utility/getFormattedTimeAndTimeZo
 import getCurrentDayOfTheWeek from "../../utility/getCurrentDayOfTheWeek";
 import getMonth from "../../utility/getMonth";
 import convertIcons from "../../utility/convertIcons";
-import { Data } from "../../interfaces/WeatherData";
+import { Current } from "../../interfaces/WeatherData";
 
-export default function MainPanel(props: { data: Data }) {
-  const reactIcon = convertIcons(
-    props.data.weatherData.current.weather[0].icon.slice(0, 2)
-  );
-  const description = props.data.weatherData.current.weather[0].description;
+interface Props {
+  data: Current;
+  city: string;
+  country: string;
+}
+
+export default function MainPanel(props: Props) {
+  const reactIcon = convertIcons(props.data.weather[0].icon.slice(0, 2));
+  const description = props.data.weather[0].description;
 
   const date = new Date();
   const day = date.getDate();
@@ -23,15 +27,15 @@ export default function MainPanel(props: { data: Data }) {
     <div className={`panel ${styles.mainPanel}`}>
       <header>
         <h2>
-          {props.data.name}, {getCountry(props.data.country)}
+          {props.city}, {getCountry(props.country)}
         </h2>
         <p className={`secondary ${styles.time}`}>
-          as of {getFormattedTimeAndTimeZone(props.data.weatherData.current.dt)}
+          as of {getFormattedTimeAndTimeZone(props.data.dt)}
         </p>
       </header>
       <main>
         <span className={styles.reactIcon}>{reactIcon} </span>
-        <h2 className="inline">{props.data.weatherData.current.temp}°</h2>
+        <h2 className="inline">{props.data.temp}°</h2>
       </main>
       <footer>
         <h2 className="description">{description}</h2>
