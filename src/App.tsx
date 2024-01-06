@@ -67,6 +67,7 @@ function App() {
                 ))}
             </div>
           </div>
+          {toast.success("Success!")}
         </>
       ) : (
         <SearchBar onSubmit={onSubmit} ref={cityRef} />
