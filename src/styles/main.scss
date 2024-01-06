@@ -8,8 +8,12 @@
 }
 
 html {
-  background: url("https://i.pinimg.com/originals/86/8b/48/868b48f0ec5b3d88216f4a484b880f59.jpg") no-repeat center center fixed;
+  background-image: url("https://i.pinimg.com/originals/86/8b/48/868b48f0ec5b3d88216f4a484b880f59.jpg");
+  background-color: #222;
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .primary {
