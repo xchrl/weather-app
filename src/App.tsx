@@ -32,13 +32,13 @@ function App() {
               "Can't fetch image. User has no internet connection or the API is not able to find any image for the city."
             );
           })
-          .catch((error) => {
-            console.error(error);
-            toast.error(
-              "Can't fetch data. User has no internet connection, the API doesn't work or the city does not exist."
-            );
-          })
-      );
+      )
+      .catch((error) => {
+        console.error(error);
+        toast.error(
+          "Can't fetch data. User has no internet connection, the API doesn't work or the city does not exist."
+        );
+      });
   }
 
   return (
