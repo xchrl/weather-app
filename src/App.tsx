@@ -1,4 +1,4 @@
-import { MutableRefObject, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import MainPanel from "./components/MainPanel/MainPanel";
 import SearchBar from "./components/SearchBar/SearchBar";
 import fetchWeatherData from "./utility/fetchWeatherData";
@@ -20,23 +20,25 @@ function App() {
 
     fetchWeatherData(value)
       .then((res) => setData(res))
-      .catch((error) => {
-        console.error(error);
-        toast.error(
-          "Can't fetch data. User has no internet connection, the API doesn't work or the city does not exist."
-        );
-      });
-
-    fetchRandomImage(value)
-      .then((url) => {
-        document.documentElement.style.backgroundImage = `url("${url}")`;
-      })
-      .catch((error) => {
-        console.error(error);
-        toast.error(
-          "Can't fetch image. User has no internet connection or the API is not able to find any image for the city."
-        );
-      });
+      .then(() =>
+        fetchRandomImage(value)
+          .then((url) => {
+            toast.success("Success!");
+            document.documentElement.style.backgroundImage = `url(${url})`;
+          })
+          .catch((error) => {
+            console.error(error);
+            toast.error(
+              "Can't fetch image. User has no internet connection or the API is not able to find any image for the city."
+            );
+          })
+          .catch((error) => {
+            console.error(error);
+            toast.error(
+              "Can't fetch data. User has no internet connection, the API doesn't work or the city does not exist."
+            );
+          })
+      );
   }
 
   return (
@@ -67,7 +69,6 @@ function App() {
                 ))}
             </div>
           </div>
-          {toast.success("Success!")}
         </>
       ) : (
         <SearchBar onSubmit={onSubmit} ref={cityRef} />
