@@ -1,4 +1,4 @@
-import { Data } from "../../interfaces/WeatherData";
+import { Daily } from "../../interfaces/WeatherData";
 import "../../styles/panel.scss";
 import getCurrentDayOfTheWeek from "../../utility/getCurrentDayOfTheWeek";
 import getMonth from "../../utility/getMonth";
@@ -6,15 +6,20 @@ import styles from "./dayPanel.module.scss";
 import convertIcons from "../../utility/convertIcons";
 import getCountry from "../../utility/getCountry";
 
-export default function DayPanel(props: { day: number; data: Data }) {
-  const nextDayData = props.data.weatherData.daily[props.day];
-  const date = new Date(nextDayData.dt * 1000);
+export default function DayPanel(props: {
+  day: number;
+  data: Daily;
+  city: string;
+  country: string;
+}) {
+  const date = new Date(props.data.dt * 1000);
   const day = date.getDate();
   const month = getMonth(date.getMonth());
   const year = date.getFullYear();
   const dayOfTheWeek = getCurrentDayOfTheWeek(date.getDay());
 
-  const reactIcon = convertIcons(nextDayData.weather[0].icon.slice(0, 2));
+  const reactIcon = convertIcons(props.data.weather[0].icon.slice(0, 2));
+
   return (
     <div className={`panel ${styles.dayPanel}`} id={`day-${props.day}`}>
       <header className="secondary">
@@ -25,14 +30,14 @@ export default function DayPanel(props: { day: number; data: Data }) {
       </header>
       <main>
         <span className={styles.reactIcon}>{reactIcon}</span>
-        <h2>{nextDayData.temp.day}°</h2>
+        <h2>{props.data.temp.day}°</h2>
         <span className="primary important description">
-          {nextDayData.weather[0].description}
+          {props.data.weather[0].description}
         </span>
       </main>
       <footer>
         <p className="secondary important">
-          {props.data.name}, {getCountry(props.data.country)}
+          {props.city}, {getCountry(props.country)}
         </p>
       </footer>
     </div>

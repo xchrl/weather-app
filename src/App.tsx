@@ -54,11 +54,18 @@ function App() {
           <div className="days-container">
             <h1>5-day weather forecast</h1>
             <div className="days">
-              <DayPanel day={1} data={data} />
-              <DayPanel day={2} data={data} />
-              <DayPanel day={3} data={data} />
-              <DayPanel day={4} data={data} />
-              <DayPanel day={5} data={data} />
+              {data.weatherData.daily
+                .filter((_, index) => index > 0 && index <= 5)
+                /* index > 0, so that it doesn't show data for today
+                index <= 5, so that it doesn't go through days after 5 days */
+                .map((day, index) => (
+                  <DayPanel
+                    day={index + 1} // + 1, because id's show the number of the day after today (tomorrow: 'day-1', 2 days: 'day-2' and so on)
+                    data={day}
+                    city={data.name}
+                    country={data.country}
+                  />
+                ))}
             </div>
           </div>
         </>
