@@ -8,7 +8,7 @@ export default async function fetchWeatherData(city: string): Promise<Data> {
   ).then((data) => data.json());
   let name, country, lat, lon;
 
-  if (geoData.length != 0) {
+  if (geoData && geoData.length != 0) {
     name = geoData[0].name;
     country = geoData[0].country;
     lon = geoData[0].lon;

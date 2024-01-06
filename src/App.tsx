@@ -6,17 +6,15 @@ import "./styles/App.scss";
 import { Data } from "./interfaces/WeatherData";
 import DayPanel from "./components/DayPanel/DayPanel";
 import fetchRandomImage from "./utility/fetchRandomImage";
-import ErrorPopup from "./components/ErrorPopup/ErrorPopup";
-import { FetchInfo } from "./interfaces/FetchInfo";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [data, setData] = useState<Data>();
-  const [fetchInfo, setFetchInfo] = useState<FetchInfo>({ fetchable: true });
   const cityRef = useRef() as MutableRefObject<HTMLInputElement>;
 
   function onSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
-    setFetchInfo({ fetchable: true });
 
     const value = cityRef.current.value;
 
@@ -24,11 +22,9 @@ function App() {
       .then((res) => setData(res))
       .catch((error) => {
         console.error(error);
-        setFetchInfo({
-          fetchable: false,
-          errorMessage:
-            "Can't fetch data. User has no internet connection, the API doesn't work or the city does not exist.",
-        });
+        toast.error(
+          "Can't fetch data. User has no internet connection, the API doesn't work or the city does not exist."
+        );
       });
 
     fetchRandomImage(value)
@@ -37,11 +33,9 @@ function App() {
       })
       .catch((error) => {
         console.error(error);
-        setFetchInfo({
-          fetchable: false,
-          errorMessage:
-            "Can't fetch image. This could be due to the API not being able to find any image for the city.",
-        });
+        toast.error(
+          "Can't fetch image. User has no internet connection or the API is not able to find any image for the city."
+        );
       });
   }
 
@@ -64,6 +58,7 @@ function App() {
                 index <= 5, so that it doesn't go through days after 5 days */
                 .map((day, index) => (
                   <DayPanel
+                    key={index}
                     day={index + 1} // + 1, because id's show the number of the day after today (tomorrow: 'day-1', 2 days: 'day-2' and so on)
                     data={day}
                     city={data.city}
@@ -76,9 +71,18 @@ function App() {
       ) : (
         <SearchBar onSubmit={onSubmit} ref={cityRef} />
       )}
-      {fetchInfo.fetchable ? null : ( // Check for errors
-        <ErrorPopup errorMessage={fetchInfo.errorMessage} />
-      )}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }
