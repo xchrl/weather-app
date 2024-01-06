@@ -6,12 +6,14 @@ import styles from "./dayPanel.module.scss";
 import convertIcons from "../../utility/convertIcons";
 import getCountry from "../../utility/getCountry";
 
-export default function DayPanel(props: {
+interface Props {
   day: number;
   data: Daily;
   city: string;
   country: string;
-}) {
+}
+
+export default function DayPanel(props: Props) {
   const date = new Date(props.data.dt * 1000);
   const day = date.getDate();
   const month = getMonth(date.getMonth());

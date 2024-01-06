@@ -1,6 +1,10 @@
 import styles from "./errorPopup.module.scss";
 
-export default function ErrorPopup(props: { errorMessage: string }) {
+interface Props {
+  errorMessage: string;
+}
+
+export default function ErrorPopup(props: Props) {
   return (
     <div className={styles.popup}>
       <header>An error has occured!</header>
