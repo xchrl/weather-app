@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import MainPanel from "./components/MainPanel/MainPanel";
 import SearchBar from "./components/SearchBar/SearchBar";
 import fetchWeatherData from "./utility/fetchWeatherData";
